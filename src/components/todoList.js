@@ -3,6 +3,9 @@ import deleteIcon from './assets/deleteIcon.png';
 import classes from './TodoList.module.css';
 import { Row, Col } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const TodoList = (props) => {
     const [todoList, setTodoList] = useState(null);
     const [completedTodoList, setCompletedTodoList] = useState([]);
@@ -36,6 +39,7 @@ const TodoList = (props) => {
             setTodoList(tempTodo);
             setCompletedTodoList(tempCompTodo);
             props.SetTodosHandler(tempTodo);
+            toast.dark("Task Deleted Successfully!");
         }
     };
 
@@ -46,7 +50,7 @@ const TodoList = (props) => {
     };
 
     return (
-        <>
+        <><ToastContainer/>
             {todoList && todoList.length > 0 ?
                 <Section>
                     {todoList.map((item) => (
@@ -71,6 +75,7 @@ const TodoList = (props) => {
                         </Row>
                     ))}
                 </Section> : <></>}
+
         </>
     );
 };
