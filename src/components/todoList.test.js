@@ -5,7 +5,7 @@ import TodoList from "./todoList";
 // Unit Test Todo component
 describe('TodoList', () => {
     //Render Todo Component
-    it('should render Todo component correctly', () => {
+    it('should render TodoList component correctly', () => {
         const component = shallow(<TodoList />);
         expect(component.exists()).toBe(true);
     });
